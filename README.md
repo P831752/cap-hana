@@ -26,5 +26,8 @@
 4. SELECT * FROM SAGENCYDATA;
 5. Join the tables, SELECT TOP 5 SAGENCYDATA.AGENCYNUM, STRAVELAG.NAME,SAGENCYDATA.NUMBOOKINGS FROM SAGENCYDATA INNER JOIN STRAVELAG on SAGENCYDATA.AGENCYNUM = STRAVELAG.AGENCYNUM;
 
+# MMyHANAApp
+1. CAP Project with Choose **Node.js** as the runtime. Select **SAP HANA Cloud** from the database for your application section. Choose **Cloud Foundry:MTA Deployment** and **CI/CD Pipeline Integration** under which way to deploy your project. Choose SAP **BTP Authorization** and **Trust Management Service (XSUAA)** and **SAP Application Router**
+2. Run, npm i & npm install -g hana-cli & hana-cli version
 
-
+ 
