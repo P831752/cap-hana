@@ -26,8 +26,17 @@
 4. SELECT * FROM SAGENCYDATA;
 5. Join the tables, SELECT TOP 5 SAGENCYDATA.AGENCYNUM, STRAVELAG.NAME,SAGENCYDATA.NUMBOOKINGS FROM SAGENCYDATA INNER JOIN STRAVELAG on SAGENCYDATA.AGENCYNUM = STRAVELAG.AGENCYNUM;
 
-# MMyHANAApp
+# MyHANAApp Application - Combine CAP with SAP HANA Cloud to Create Full-Stack Applications
+0 https://developers.sap.com/mission.hana-cloud-cap.html
 1. CAP Project with Choose **Node.js** as the runtime. Select **SAP HANA Cloud** from the database for your application section. Choose **Cloud Foundry:MTA Deployment** and **CI/CD Pipeline Integration** under which way to deploy your project. Choose SAP **BTP Authorization** and **Trust Management Service (XSUAA)** and **SAP Application Router**
 2. Run, npm i & npm install -g hana-cli & hana-cli version
-
- 
+3. Define **db**, **header** & **items** entities with **Comoposition** & **association** relation ship
+4. **Bind** HANA DB from **SAP HANA Projects** and create **New Service Instance** 
+5. check **cf services** able to see hana services
+6. **Deploy** (Rockt symbol) initial artifacts.
+7 Run **cds bind -2 MyHANAApp-dev:SharedDevKey** cdsrc-private.json created (CAP srv to HANA connection)
+8. cds compile srv/ --to xsuaa > xs-security.json
+9. cf create-service xsuaa application MyHANAApp-auth -c xs-security.json
+10.cds bind -2 MyHANAApp-auth:default
+11.cds bind --exec -- npm start --prefix app/router **(not working)**
+12. cds watch --profile hybrid
